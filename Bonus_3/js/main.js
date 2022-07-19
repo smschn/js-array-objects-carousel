@@ -199,10 +199,37 @@ const carouselAutoplay = setInterval( () => {
 
 // --- fine Bonus_2, inizio Bonus_3
 
+// creo funzionalità bottone play
+const btnPlayDom = document.getElementById('btn_play');
+btnPlayDom.addEventListener('click', function() {
+    
+    const carouselPlay = setInterval( () => {
+
+        if (activeImg == (imagesArray.length-1)) {
+    
+            itemList[activeImg].classList.remove('show');
+            activeImgThumbnailDom[activeImg].classList.remove('active');
+            activeImg = 0;
+            itemList[activeImg].classList.add('show');
+            activeImgThumbnailDom[activeImg].classList.add('active');
+    
+        } else {
+    
+            itemList[activeImg].classList.remove('show');
+            activeImgThumbnailDom[activeImg].classList.remove('active');
+            activeImg++;
+            itemList[activeImg].classList.add('show');
+            activeImgThumbnailDom[activeImg].classList.add('active');
+    
+        }
+    
+        console.log(activeImg) // debug
+    
+    }, 3000);
+})
 
 
-
-// aggiungo event listener al bottone stop che ferma l'autoplay del carousel agendo sul 'setInterval'
+// creo funzionalità bottone stop
 const btnStopDom = document.getElementById('btn_stop');
 btnStopDom.addEventListener('click', function() {
     clearInterval(carouselAutoplay);
