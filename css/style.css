@@ -2,6 +2,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: sans-serif;
+    font-size: 1.5rem;
 }
 
 .container {
@@ -85,14 +87,28 @@
 
 .t_img.active {
     filter: brightness(100%);
-    border: 5px solid plum;
+    border: 5px solid red;
 }
 
 /* Di seguito: codice per il testo sovrapposto alle immagini */
-h1 {
+.items {
+    position: relative;
+}
 
+h1, p {
+    position: absolute;
+    color: red;
+    background-color: rgba(0,0,0, 0.5);
+}
+
+h1 {
+    top: 50px;
+    left: 50px;
 }
 
 p {
-
+    top: 100px;
+    left: 50px;
+    font-size: 1rem;
+    width: 80%;
 }
