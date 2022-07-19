@@ -1,5 +1,6 @@
 // creo array con oggetti
 const imagesArray = [
+
     {
         url: 'http://www.viaggiareonline.it/wp-content/uploads/2014/11/sweden_148857365.jpg',
         title: 'Svezia',
@@ -17,19 +18,22 @@ const imagesArray = [
         title: 'Chile',
         description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam.'
     },
+
     {
         url: 'https://static1.evcdn.net/images/reduction/1583177_w-1920_h-1080_q-70_m-crop.jpg',
         title: 'Argentina',
         description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam.'
     },
+
     {
         url: 'https://cdn.sanity.io/images/24oxpx4s/prod/ed09eff0362396772ad50ec3bfb728d332eb1c30-3200x2125.jpg?w=1600&h=1063&fit=crop',
         title: 'Colombia',
         description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam.'
     },
+
 ];
 
-/*
+/* -- vecchio codice
 // create an array for the images.
 const imgArray = [
     "img/01.jpg",
@@ -40,30 +44,28 @@ const imgArray = [
 ];
 */
 
-// create variabile to be used in the for loop to tell where the created <div> should be put in the html file.
+// richiamo il container delle immagini
 const itemsDom = document.querySelector('.items');
 
-// create a for loop to dynamically create <div .item> (i will not see them in html because they will not have the .show class).
+// attraverso ciclo for, creo dinamicamente i <div> contenenti le immagini (non le vedo perché non hanno la classe .show< tutti gli .item sono di default su display:none)
 for (i=0; i<imagesArray.length; i++) {
+
     itemsDom.innerHTML += ` <div class="item">
                             <img class="img_slide" src="${imagesArray[i].url}">
                             </div>`;
-    // debug: used to check if 5 <div> are actually created.
-    console.log(itemsDom);
+    console.log(itemsDom); // debug
+
 }
 
-// create a variable to specify which <div .item> inside the imagesArray will have the .show class.
+// creo una variabile di servizio per specificare quale dei <div .item> creati deve avere la classe .show (il primo)
 let activeImg = 0;
 
-// create a variable which refers to every <div .item> created (this is an array).
+// richiamo tutti i <div .item> creati nel ciclo for
 const itemList = document.getElementsByClassName('item');
+console.log(itemList); // debug
 
-// being an array, we can tell to the first element in itemList to have the class .show
+// 'itemList' è un array e come tale possiamo dire al primo elemento di avere la classe .show
 itemList[activeImg].classList.add('show');
-
-// debug: check if itemList is an array (if done correctly, it will be an array with 5 elements within) and if the .show class is given to the first <div> only.
-console.log(itemList);
-
 
 
 
