@@ -138,7 +138,13 @@ for (let x = 0; x < activeImgThumbnailDom.length; x++) {
 
         document.querySelector('.active').classList.remove('active'); // al click rimuovo classe .active sulla miniatura che la ha in quel momento
         this.classList.add('active');   // al click sulla miniatura aggiungo classe active a miniatura cliccata
-            
+
+        for (let y = 0; y < itemList.length; y++) {
+            itemList[y].classList.remove('show');
+        }
+
+        itemList[x].classList.add('show');
+
     })
 
 }
