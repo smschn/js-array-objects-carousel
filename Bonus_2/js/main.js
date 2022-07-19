@@ -163,3 +163,34 @@ for (let x = 0; x < activeImgThumbnailDom.length; x++) {
     })
 
 }
+
+
+
+// --- inizio Bonus_2
+
+
+
+// uso la funzione setInterval per ciclare il carosello in automatico, usando il codice dei cicli delle frecce
+setInterval(() => {
+
+    if (activeImg == (imagesArray.length-1)) {
+
+        itemList[activeImg].classList.remove('show');
+        activeImgThumbnailDom[activeImg].classList.remove('active');
+        activeImg = 0;
+        itemList[activeImg].classList.add('show');
+        activeImgThumbnailDom[activeImg].classList.add('active');
+
+    } else {
+
+        itemList[activeImg].classList.remove('show');
+        activeImgThumbnailDom[activeImg].classList.remove('active');
+        activeImg++;
+        itemList[activeImg].classList.add('show');
+        activeImgThumbnailDom[activeImg].classList.add('active');
+
+    }
+
+    console.log(activeImg) // debug
+
+}, 3000);
