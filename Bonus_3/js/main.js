@@ -199,64 +199,79 @@ const carouselAutoplay = setInterval( () => {
 
 // --- fine Bonus_2, inizio Bonus_3
 
+
+let setIntervalUndefined;
+
 // creo funzionalità bottone play
 const btnPlayDom = document.getElementById('btn_play');
 btnPlayDom.addEventListener('click', function() {
-    
-    const carouselPlay = setInterval( () => {
 
-        if (activeImg == (imagesArray.length-1)) {
+    if (setIntervalUndefined == undefined) {
+
+        setIntervalUndefined = setInterval( () => {
+
+            if (activeImg == (imagesArray.length-1)) {
+        
+                itemList[activeImg].classList.remove('show');
+                activeImgThumbnailDom[activeImg].classList.remove('active');
+                activeImg = 0;
+                itemList[activeImg].classList.add('show');
+                activeImgThumbnailDom[activeImg].classList.add('active');
+        
+            } else {
+        
+                itemList[activeImg].classList.remove('show');
+                activeImgThumbnailDom[activeImg].classList.remove('active');
+                activeImg++;
+                itemList[activeImg].classList.add('show');
+                activeImgThumbnailDom[activeImg].classList.add('active');
+        
+            }
     
-            itemList[activeImg].classList.remove('show');
-            activeImgThumbnailDom[activeImg].classList.remove('active');
-            activeImg = 0;
-            itemList[activeImg].classList.add('show');
-            activeImgThumbnailDom[activeImg].classList.add('active');
+            console.log(activeImg) // debug
+        
+        }, 3000);
+      
+    }
     
-        } else {
-    
-            itemList[activeImg].classList.remove('show');
-            activeImgThumbnailDom[activeImg].classList.remove('active');
-            activeImg++;
-            itemList[activeImg].classList.add('show');
-            activeImgThumbnailDom[activeImg].classList.add('active');
-    
-        }
-    
-        console.log(activeImg) // debug
-    
-    }, 3000);
 })
-
 
 // creo funzionalità bottone stop
 const btnStopDom = document.getElementById('btn_stop');
 btnStopDom.addEventListener('click', function() {
+
+    clearInterval(setIntervalUndefined);
     clearInterval(carouselAutoplay);
+    setIntervalUndefined = undefined;
+
 })
 
 // creo funzionalità bottone reverse
 const btnReverse = document.getElementById('btn_reverse');
 btnReverse.addEventListener('click', function() {
 
-    const carouselPlay = setInterval( () => {
+    if (setIntervalUndefined == undefined) {
 
-        if (activeImg == 0) {
-            itemList[0].classList.remove('show');
-            activeImgThumbnailDom[activeImg].classList.remove('active');
-            activeImg = (imagesArray.length-1);
-            itemList[activeImg].classList.add('show');
-            activeImgThumbnailDom[activeImg].classList.add('active');
-        } else {
-            itemList[activeImg].classList.remove('show');
-            activeImgThumbnailDom[activeImg].classList.remove('active');
-            activeImg--;
-            itemList[activeImg].classList.add('show');
-            activeImgThumbnailDom[activeImg].classList.add('active');
-        }
-    
-        console.log(activeImg) // debug
-    
-    }, 3000);
+        setIntervalUndefined = setInterval( () => {
+
+            if (activeImg == 0) {
+                itemList[0].classList.remove('show');
+                activeImgThumbnailDom[activeImg].classList.remove('active');
+                activeImg = (imagesArray.length-1);
+                itemList[activeImg].classList.add('show');
+                activeImgThumbnailDom[activeImg].classList.add('active');
+            } else {
+                itemList[activeImg].classList.remove('show');
+                activeImgThumbnailDom[activeImg].classList.remove('active');
+                activeImg--;
+                itemList[activeImg].classList.add('show');
+                activeImgThumbnailDom[activeImg].classList.add('active');
+            }
+        
+            console.log(activeImg) // debug
+            
+        }, 3000);
+
+    }
 
 })
