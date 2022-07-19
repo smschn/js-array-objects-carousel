@@ -94,19 +94,8 @@ console.log(activeImgThumbnailDom); // debug
 const next = document.querySelector('.arrow_next');
 next.addEventListener('click', function() {
 
-     if (activeImg == (imagesArray.length-1)) {
-        itemList[activeImg].classList.remove('show');
-        activeImgThumbnailDom[activeImg].classList.remove('active');
-        activeImg = 0;
-        itemList[activeImg].classList.add('show');
-        activeImgThumbnailDom[activeImg].classList.add('active');
-    } else {
-        itemList[activeImg].classList.remove('show');
-        activeImgThumbnailDom[activeImg].classList.remove('active');
-        activeImg++;
-        itemList[activeImg].classList.add('show');
-        activeImgThumbnailDom[activeImg].classList.add('active');
-    }
+    // richiamo la funzione per il click sulla freccia avanti
+     goForward();
 
 })
 
@@ -114,19 +103,8 @@ next.addEventListener('click', function() {
 const previous = document.querySelector('.arrow_previous');
 previous.addEventListener('click', function() {
 
-    if (activeImg == 0) {
-        itemList[0].classList.remove('show');
-        activeImgThumbnailDom[activeImg].classList.remove('active');
-        activeImg = (imagesArray.length-1);
-        itemList[activeImg].classList.add('show');
-        activeImgThumbnailDom[activeImg].classList.add('active');
-    } else {
-        itemList[activeImg].classList.remove('show');
-        activeImgThumbnailDom[activeImg].classList.remove('active');
-        activeImg--;
-        itemList[activeImg].classList.add('show');
-        activeImgThumbnailDom[activeImg].classList.add('active');
-    }
+    // richiamo la funzione per il click sulla freccia indietro   
+    goBackwards()
     
 })
 
@@ -173,23 +151,8 @@ for (let x = 0; x < activeImgThumbnailDom.length; x++) {
 // uso la funzione setInterval per ciclare il carosello in automatico, usando il codice dei cicli delle frecce
 const carouselAutoplay = setInterval( () => {
 
-    if (activeImg == (imagesArray.length-1)) {
-
-        itemList[activeImg].classList.remove('show');
-        activeImgThumbnailDom[activeImg].classList.remove('active');
-        activeImg = 0;
-        itemList[activeImg].classList.add('show');
-        activeImgThumbnailDom[activeImg].classList.add('active');
-
-    } else {
-
-        itemList[activeImg].classList.remove('show');
-        activeImgThumbnailDom[activeImg].classList.remove('active');
-        activeImg++;
-        itemList[activeImg].classList.add('show');
-        activeImgThumbnailDom[activeImg].classList.add('active');
-
-    }
+    // richiamo la funzione per il click sulla freccia avanti
+    goForward();
 
     console.log(activeImg) // debug
 
@@ -199,7 +162,7 @@ const carouselAutoplay = setInterval( () => {
 
 // --- fine Bonus_2, inizio Bonus_3
 
-
+// imposto variabile di comodo per attivare correttamente i bottoni
 let setIntervalUndefined;
 
 // creo funzionalità bottone play
@@ -210,23 +173,8 @@ btnPlayDom.addEventListener('click', function() {
 
         setIntervalUndefined = setInterval( () => {
 
-            if (activeImg == (imagesArray.length-1)) {
-        
-                itemList[activeImg].classList.remove('show');
-                activeImgThumbnailDom[activeImg].classList.remove('active');
-                activeImg = 0;
-                itemList[activeImg].classList.add('show');
-                activeImgThumbnailDom[activeImg].classList.add('active');
-        
-            } else {
-        
-                itemList[activeImg].classList.remove('show');
-                activeImgThumbnailDom[activeImg].classList.remove('active');
-                activeImg++;
-                itemList[activeImg].classList.add('show');
-                activeImgThumbnailDom[activeImg].classList.add('active');
-        
-            }
+            // richiamo la funzione per il click sulla freccia avanti
+            goForward();
     
             console.log(activeImg) // debug
         
@@ -254,19 +202,8 @@ btnReverse.addEventListener('click', function() {
 
         setIntervalUndefined = setInterval( () => {
 
-            if (activeImg == 0) {
-                itemList[0].classList.remove('show');
-                activeImgThumbnailDom[activeImg].classList.remove('active');
-                activeImg = (imagesArray.length-1);
-                itemList[activeImg].classList.add('show');
-                activeImgThumbnailDom[activeImg].classList.add('active');
-            } else {
-                itemList[activeImg].classList.remove('show');
-                activeImgThumbnailDom[activeImg].classList.remove('active');
-                activeImg--;
-                itemList[activeImg].classList.add('show');
-                activeImgThumbnailDom[activeImg].classList.add('active');
-            }
+            // richiamo la funzione per il click sulla freccia indietro
+            goBackwards()
         
             console.log(activeImg) // debug
             
@@ -275,3 +212,55 @@ btnReverse.addEventListener('click', function() {
     }
 
 })
+
+
+
+// --- inizio funzioni
+
+
+
+// funzione per il click sulla freccia avanti
+function goForward() {
+
+    if (activeImg == (imagesArray.length-1)) {
+        
+        itemList[activeImg].classList.remove('show');
+        activeImgThumbnailDom[activeImg].classList.remove('active');
+        activeImg = 0;
+        itemList[activeImg].classList.add('show');
+        activeImgThumbnailDom[activeImg].classList.add('active');
+
+    } else {
+
+        itemList[activeImg].classList.remove('show');
+        activeImgThumbnailDom[activeImg].classList.remove('active');
+        activeImg++;
+        itemList[activeImg].classList.add('show');
+        activeImgThumbnailDom[activeImg].classList.add('active');
+
+    }
+
+}
+
+// funzione per il click sulla freccia indietro
+function goBackwards() {
+
+    if (activeImg == 0) {
+
+        itemList[0].classList.remove('show');
+        activeImgThumbnailDom[activeImg].classList.remove('active');
+        activeImg = (imagesArray.length-1);
+        itemList[activeImg].classList.add('show');
+        activeImgThumbnailDom[activeImg].classList.add('active');
+
+    } else {
+
+        itemList[activeImg].classList.remove('show');
+        activeImgThumbnailDom[activeImg].classList.remove('active');
+        activeImg--;
+        itemList[activeImg].classList.add('show');
+        activeImgThumbnailDom[activeImg].classList.add('active');
+        
+    }
+
+}
