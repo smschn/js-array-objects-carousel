@@ -33,17 +33,6 @@ const imagesArray = [
 
 ];
 
-/* -- vecchio codice
-// create an array for the images.
-const imgArray = [
-    "img/01.jpg",
-    "img/02.jpg",
-    "img/03.jpg",
-    "img/04.jpg",
-    "img/05.jpg"
-];
-*/
-
 // richiamo il container delle immagini
 const itemsDom = document.querySelector('.items');
 
@@ -105,16 +94,16 @@ next.addEventListener('click', function() {
 
      if (activeImg == (imagesArray.length-1)) {
         itemList[activeImg].classList.remove('show');
-        activeImgThumbnailDom[activeImg].classList.remove('active'); // bonus_2 part
+        activeImgThumbnailDom[activeImg].classList.remove('active');
         activeImg = 0;
         itemList[activeImg].classList.add('show');
-        activeImgThumbnailDom[activeImg].classList.add('active'); // bonus_2 part
+        activeImgThumbnailDom[activeImg].classList.add('active');
     } else {
         itemList[activeImg].classList.remove('show');
-        activeImgThumbnailDom[activeImg].classList.remove('active'); // bonus_2 part
+        activeImgThumbnailDom[activeImg].classList.remove('active');
         activeImg++;
         itemList[activeImg].classList.add('show');
-        activeImgThumbnailDom[activeImg].classList.add('active'); // bonus_2 part
+        activeImgThumbnailDom[activeImg].classList.add('active');
     }
 
 })
@@ -125,16 +114,16 @@ previous.addEventListener('click', function() {
 
     if (activeImg == 0) {
         itemList[0].classList.remove('show');
-        activeImgThumbnailDom[activeImg].classList.remove('active'); // bonus_2 part
+        activeImgThumbnailDom[activeImg].classList.remove('active');
         activeImg = (imagesArray.length-1);
         itemList[activeImg].classList.add('show');
-        activeImgThumbnailDom[activeImg].classList.add('active'); // bonus_2 part
+        activeImgThumbnailDom[activeImg].classList.add('active');
     } else {
         itemList[activeImg].classList.remove('show');
-        activeImgThumbnailDom[activeImg].classList.remove('active'); // bonus_2 part
+        activeImgThumbnailDom[activeImg].classList.remove('active');
         activeImg--;
         itemList[activeImg].classList.add('show');
-        activeImgThumbnailDom[activeImg].classList.add('active'); // bonus_2 part
+        activeImgThumbnailDom[activeImg].classList.add('active');
     }
     
 })
