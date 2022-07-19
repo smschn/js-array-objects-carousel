@@ -129,3 +129,15 @@ previous.addEventListener('click', function() {
     }
     
 })
+
+// evento al click su una qualsiasi delle miniature
+console.log(activeImgThumbnailDom);
+
+for (let x = 0; x < activeImgThumbnailDom.length; x++) {
+    activeImgThumbnailDom[x].addEventListener('click', function() {
+
+        activeImgThumbnailDom[x].classList.remove('active');
+        this.classList.add('active');
+    
+    })
+}
