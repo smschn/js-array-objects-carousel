@@ -130,14 +130,15 @@ previous.addEventListener('click', function() {
     
 })
 
-// evento al click su una qualsiasi delle miniature
-console.log(activeImgThumbnailDom);
-
+// evento al click su una qualsiasi delle miniature: uso ciclo for perché devo aggiungere l'evento click ad ogni elemento dell'array
 for (let x = 0; x < activeImgThumbnailDom.length; x++) {
+
+    // ad ogni elemento dell'array (cioè ad ogni miniatura) aggiungo evento click
     activeImgThumbnailDom[x].addEventListener('click', function() {
 
-        activeImgThumbnailDom[x].classList.remove('active');
-        this.classList.add('active');
-    
+        document.querySelector('.active').classList.remove('active'); // al click rimuovo classe .active sulla miniatura che la ha in quel momento
+        this.classList.add('active');   // al click sulla miniatura aggiungo classe active a miniatura cliccata
+            
     })
+
 }
