@@ -142,6 +142,13 @@ for (let x = 0; x < activeImgThumbnailDom.length; x++) {
     // ad ogni elemento dell'array (cioè ad ogni miniatura) aggiungo evento click
     activeImgThumbnailDom[x].addEventListener('click', function() {
 
+        /*
+        al click sulla miniatura, l'immagine attiva ('activeImg') deve diventare quella corrispondente alla miniatura cliccata:
+        per questo motivo devo impostare la variabile 'activeImg' == al contatore 'x'.
+        In questo modo il ciclo delle frecce funziona come dovrebbe, senza sfasamenti tra i valori di 'activeImg' e 'x'.
+        */
+        activeImg = x;
+
         document.querySelector('.active').classList.remove('active'); // al click rimuovo classe .active sulla miniatura che la ha in quel momento
         this.classList.add('active');   // al click sulla miniatura aggiungo classe active a miniatura cliccata
 
