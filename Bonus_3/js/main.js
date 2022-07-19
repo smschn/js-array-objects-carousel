@@ -132,7 +132,7 @@ previous.addEventListener('click', function() {
 
 
 
-// --- inizio evento click per Bonus_1
+// --- fine eventi click frecce, inizio evento click per Bonus_1
 
 
 
@@ -166,7 +166,7 @@ for (let x = 0; x < activeImgThumbnailDom.length; x++) {
 
 
 
-// --- inizio Bonus_2
+// --- fine Bonus_1, inizio Bonus_2
 
 
 
@@ -194,3 +194,10 @@ setInterval(() => {
     console.log(activeImg) // debug
 
 }, 3000);
+
+
+
+// --- fine Bonus_2, inizio Bonus_3
+
+
+
