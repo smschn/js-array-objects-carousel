@@ -61,7 +61,7 @@
     z-index: 999;
 }
 
-/* following code is related to bonus_2 part */
+/* Di seguito: codice per le miniature */
 
 .thumbnail_container {
     position: absolute;
@@ -86,4 +86,13 @@
 .t_img.active {
     filter: brightness(100%);
     border: 5px solid plum;
+}
+
+/* Di seguito: codice per il testo sovrapposto alle immagini */
+h1 {
+
+}
+
+p {
+
 }
