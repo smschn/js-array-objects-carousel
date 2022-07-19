@@ -69,33 +69,41 @@ itemList[activeImg].classList.add('show');
 
 
 
+// --- fine prima parte, inizio seconda
 
 
 
+// richiamo il container delle miniature
+const thumbnailContainerDom = document.querySelector('.thumbnail_container');
 
-// following is mostly related to bonus_2
-const thumbnailContainerDom = document.querySelector('.thumbnail_container'); // bonus_2
+// attraverso un ciclo for, all'interno del container delle miniature creo le miniature
+for (let i = 0; i < imagesArray.length; i++) {
 
-// bonus_2
-for (i=0; i<imgArray.length; i++) {
     thumbnailContainerDom.innerHTML += `<div class="t_img">
-                                        <img src="${imgArray[i]}">
+                                        <img src="${imagesArray[i].url}">
                                         </div>`;
+
 }
 
-//bonus_2
+// richiamo tutte li miniature (ottengo un array)
 const activeImgThumbnailDom = document.getElementsByClassName('t_img');
-console.log(activeImgThumbnailDom); // to check if we have an array with all the 5 <div .t_img> created.
+console.log(activeImgThumbnailDom); // debug
 
+// aggiungo la classe .active alla prima miniatura dell'array
 activeImgThumbnailDom[activeImg].classList.add('active');
-console.log(activeImgThumbnailDom); // to check if the first <div .t_img> has the class .active.
+console.log(activeImgThumbnailDom); // debug
 
-// click on arrow_next event
+
+
+// --- fine seconda parte, inizio eventi click
+
+
+
+// evento click sulla freccia avanti
 const next = document.querySelector('.arrow_next');
-next.addEventListener('click',
-function() {
+next.addEventListener('click', function() {
 
-     if (activeImg == (imgArray.length-1)) {
+     if (activeImg == (imagesArray.length-1)) {
         itemList[activeImg].classList.remove('show');
         activeImgThumbnailDom[activeImg].classList.remove('active'); // bonus_2 part
         activeImg = 0;
@@ -111,15 +119,14 @@ function() {
 
 })
 
-// click on arrow_previous event
+// evento click sulla freccia indietro
 const previous = document.querySelector('.arrow_previous');
-previous.addEventListener('click',
-function() {
+previous.addEventListener('click', function() {
 
     if (activeImg == 0) {
         itemList[0].classList.remove('show');
         activeImgThumbnailDom[activeImg].classList.remove('active'); // bonus_2 part
-        activeImg = (imgArray.length-1);
+        activeImg = (imagesArray.length-1);
         itemList[activeImg].classList.add('show');
         activeImgThumbnailDom[activeImg].classList.add('active'); // bonus_2 part
     } else {
