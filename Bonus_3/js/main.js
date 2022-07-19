@@ -171,7 +171,7 @@ for (let x = 0; x < activeImgThumbnailDom.length; x++) {
 
 
 // uso la funzione setInterval per ciclare il carosello in automatico, usando il codice dei cicli delle frecce
-setInterval(() => {
+const carouselAutoplay = setInterval( () => {
 
     if (activeImg == (imagesArray.length-1)) {
 
@@ -201,3 +201,9 @@ setInterval(() => {
 
 
 
+
+// aggiungo event listener al bottone stop che ferma l'autoplay del carousel agendo sul 'setInterval'
+const btnStopDom = document.getElementById('btn_stop');
+btnStopDom.addEventListener('click', function() {
+    clearInterval(carouselAutoplay);
+})
