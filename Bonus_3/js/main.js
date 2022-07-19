@@ -234,3 +234,29 @@ const btnStopDom = document.getElementById('btn_stop');
 btnStopDom.addEventListener('click', function() {
     clearInterval(carouselAutoplay);
 })
+
+// creo funzionalità bottone reverse
+const btnReverse = document.getElementById('btn_reverse');
+btnReverse.addEventListener('click', function() {
+
+    const carouselPlay = setInterval( () => {
+
+        if (activeImg == 0) {
+            itemList[0].classList.remove('show');
+            activeImgThumbnailDom[activeImg].classList.remove('active');
+            activeImg = (imagesArray.length-1);
+            itemList[activeImg].classList.add('show');
+            activeImgThumbnailDom[activeImg].classList.add('active');
+        } else {
+            itemList[activeImg].classList.remove('show');
+            activeImgThumbnailDom[activeImg].classList.remove('active');
+            activeImg--;
+            itemList[activeImg].classList.add('show');
+            activeImgThumbnailDom[activeImg].classList.add('active');
+        }
+    
+        console.log(activeImg) // debug
+    
+    }, 3000);
+
+})
